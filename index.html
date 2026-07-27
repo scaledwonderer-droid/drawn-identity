@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Drawn Identity — 運命に選ばれた個性</title>
+<style>
+@font-face{font-family:Prata;src:url('fonts/Prata-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Cormorant;src:url('fonts/CormorantGaramond-Variable.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Cinzel;src:url('fonts/Cinzel-Variable.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Dancing;src:url('fonts/DancingScript.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Yeseva;src:url('fonts/YesevaOne-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:MPlusBlack;src:url('fonts/MPLUS1p-Black.woff2') format('woff2');font-display:swap}
+@font-face{font-family:ZenKurenaido;src:url('fonts/ZenKurenaido-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:ZenMaru;src:url('fonts/ZenMaruGothic-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Kaisei;src:url('fonts/KaiseiDecol-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Hachi;src:url('fonts/HachiMaruPop-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Oxanium;src:url('fonts/Oxanium-VariableFont_wght.woff2') format('woff2');font-display:swap}
+@font-face{font-family:Runic;src:url('fonts/NotoSansRunic-Regular.woff2') format('woff2');font-display:swap}
+:root{--bg:#0b0b0d;--panel:#131316;--panel2:#19191d;--line:#303037;--line2:#45454e;--text:#f0eee8;--muted:#a6a39d;--accent:#c8ad72;--accent2:#876f43;--danger:#ba7a7a;--radius:14px}
+*{box-sizing:border-box}html{background:var(--bg);color:var(--text);font-family:ZenKurenaido,system-ui,sans-serif}body{margin:0;min-height:100vh;background:radial-gradient(circle at 18% -10%,#29251d 0,transparent 32%),linear-gradient(180deg,#0a0a0c,#101014 45%,#09090b)}
+button,input,select,textarea{font:inherit}.app{width:min(1550px,100%);margin:auto;padding:24px}.brand{display:flex;justify-content:space-between;gap:20px;align-items:end;margin:0 0 20px}.brand h1{font:400 clamp(27px,3vw,48px)/1 Prata,serif;letter-spacing:.015em;margin:0}.brand p{margin:8px 0 0;color:var(--muted);font-size:13px;letter-spacing:.08em}.edition{font:600 11px/1 Oxanium,sans-serif;letter-spacing:.2em;color:var(--accent);padding-bottom:4px}
+.workspace{display:grid;grid-template-columns:minmax(430px,680px) minmax(430px,1fr);gap:24px;align-items:start}.preview-sticky{position:sticky;top:18px}.preview-shell{background:#08080a;border:1px solid var(--line2);padding:10px;box-shadow:0 24px 80px #0008}.preview-wrap{position:relative;width:100%;aspect-ratio:4/5;overflow:hidden;background:#08080a;touch-action:none;cursor:grab}.preview-wrap:active{cursor:grabbing}canvas{display:block;width:100%;height:100%}.empty-tip{position:absolute;inset:0;display:grid;place-content:center;text-align:center;color:#8d8982;pointer-events:none;padding:40px}.empty-tip strong{font:400 24px Prata,serif;color:#c9c4bb}.empty-tip small{margin-top:8px}.empty-tip.hidden{display:none}.preview-tools{display:grid;grid-template-columns:1fr auto auto;gap:8px;margin-top:10px}.zoomrow{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);padding:0 12px}.zoomrow input{width:100%;accent-color:var(--accent)}
+.panel{background:linear-gradient(180deg,#17171b,#111114);border:1px solid var(--line);box-shadow:0 20px 60px #0004}.section{padding:20px;border-bottom:1px solid var(--line)}.section:last-child{border:0}.section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.section-title h2{font:600 12px Oxanium,sans-serif;letter-spacing:.17em;margin:0;color:#d8d3c9}.section-title span{font-size:11px;color:var(--muted)}label.caption{display:block;color:#b9b5ad;font-size:12px;margin:0 0 7px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{width:100%;color:var(--text);background:#0b0b0e;border:1px solid #393940;border-radius:7px;padding:11px 12px;outline:none}.field:focus{border-color:var(--accent2);box-shadow:0 0 0 3px #c8ad7214}.field::placeholder{color:#66646a}textarea.field{resize:vertical;min-height:72px}.free-world{margin-top:10px;display:none}.free-world.show{display:block}
+.upload{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center}.filebox{position:relative;background:#0b0b0e;border:1px dashed #55515a;border-radius:8px;padding:14px}.filebox input{position:absolute;inset:0;opacity:0;cursor:pointer}.filebox strong{display:block;font-size:13px}.filebox span{display:block;font-size:11px;color:var(--muted);margin-top:3px}.status{font-size:11px;color:var(--muted);margin-top:8px}.status.ok{color:#b9c6a8}.status.bad{color:#d6a2a2}
+.group{margin-top:16px}.group:first-child{margin-top:0}.grouphead{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.grouphead b{font-size:12px;letter-spacing:.08em}.grouphead small{color:var(--muted)}.tags{display:flex;flex-wrap:wrap;gap:7px}.tag{display:inline-flex;align-items:center;gap:7px;border:1px solid #3a3a41;background:#111114;color:#aaa7a2;border-radius:999px;padding:7px 10px;cursor:pointer;transition:.15s}.tag:hover{border-color:#69636a;color:#eee}.tag.selected{background:#28241d;border-color:#8c774c;color:#f3ead7;box-shadow:inset 0 0 0 1px #c8ad7220}.tag img{width:22px;height:22px;object-fit:contain}.tag span{font-size:11px;line-height:1.1}.style-tags .tag{padding:7px 11px}.selection-count{color:var(--accent)!important}
+.btn{border:1px solid #4b4b52;background:#18181c;color:#e9e7e1;border-radius:7px;padding:11px 14px;cursor:pointer}.btn:hover{background:#202025;border-color:#66666f}.btn.icon{padding:10px 12px}.btn.primary{width:100%;padding:16px;background:linear-gradient(135deg,#d1bc88,#9f8654);border-color:#d7c28f;color:#17130c;font:700 14px Oxanium,sans-serif;letter-spacing:.18em;box-shadow:0 12px 32px #0007}.btn.primary small{display:block;font:400 11px ZenKurenaido,sans-serif;letter-spacing:.1em;margin-top:4px}.btn.primary:hover{filter:brightness(1.07)}.btn.primary:disabled{opacity:.45;filter:none;cursor:not-allowed}.actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.btn.save{border-color:#776744;color:#e9d7ac}.result{display:none;padding:18px;background:#0b0b0e;border:1px solid #4b4333;margin-bottom:12px;text-align:center}.result.show{display:block}.result .en{font:400 clamp(20px,2.5vw,33px) Prata,serif;letter-spacing:.06em}.result .ja{font-size:13px;color:#d5c49f;margin-top:5px}.result .meta{font:500 10px Oxanium,sans-serif;letter-spacing:.15em;color:#827d74;margin-top:10px}
+.footer{padding:18px 0 5px;text-align:center;color:#77747a;font-size:10px;letter-spacing:.06em}
+@media(max-width:930px){.app{padding:14px}.brand{align-items:start}.edition{display:none}.workspace{grid-template-columns:1fr}.preview-sticky{position:static}.preview-shell{max-width:640px;margin:auto}.panel{max-width:720px;margin:auto}.brand{max-width:720px;margin:0 auto 16px}.brand h1{font-size:30px}.grid2{grid-template-columns:1fr}.preview-tools{grid-template-columns:1fr auto auto}}
+@media(max-width:520px){.app{padding:10px}.brand h1{font-size:25px}.brand p{font-size:11px}.section{padding:16px}.tag{padding:6px 9px}.tag img{width:20px;height:20px}.preview-shell{padding:6px}.actions{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="brand"><div><h1>Drawn Identity</h1><p>運命に選ばれた個性 — FFXIV CHARACTER CARD DRAW</p></div><div class="edition">INITIAL BUILD 01</div></header>
+<div class="workspace">
+<section class="preview-sticky">
+  <div class="preview-shell">
+    <div class="preview-wrap" id="previewWrap">
+      <canvas id="canvas" width="1080" height="1350"></canvas>
+      <div class="empty-tip" id="emptyTip"><strong>YOUR IMAGE</strong><small>SSをアップロードしてください</small></div>
+    </div>
+    <div class="preview-tools">
+      <label class="zoomrow"><span>−</span><input id="zoom" type="range" min="0.3" max="4" step="0.01" value="1"><span>＋</span></label>
+      <button class="btn icon" id="flipBtn" type="button" title="左右反転">⇆</button>
+      <button class="btn icon" id="resetBtn" type="button" title="初期位置へ戻す">↺</button>
+    </div>
+  </div>
+</section>
+<section class="panel">
+  <div class="section">
+    <div class="section-title"><h2>01 / SCREENSHOT</h2><span>必須</span></div>
+    <div class="upload">
+      <div class="filebox"><input id="imageInput" type="file" accept="image/png,image/jpeg,image/webp"><strong>SS画像を選択</strong><span>PNG / JPEG / WebP</span></div>
+      <button class="btn" id="clearImage" type="button">削除</button>
+    </div>
+    <div class="status" id="imageStatus">未選択</div>
+  </div>
+  <div class="section">
+    <div class="section-title"><h2>02 / PROFILE</h2><span>入力情報</span></div>
+    <div class="grid2">
+      <div><label class="caption" for="charName">キャラクター名</label><input class="field" id="charName" maxlength="42" placeholder="Karin Tachibana"></div>
+      <div><label class="caption" for="worldSelect">DC／ホームワールド</label><select class="field" id="worldSelect"></select><input class="field free-world" id="freeWorld" maxlength="45" placeholder="DC / Home World"></div>
+    </div>
+    <div style="margin-top:12px"><label class="caption" for="message">一言メッセージ（任意）</label><textarea class="field" id="message" maxlength="100" placeholder="ひとこと入力してください"></textarea></div>
+  </div>
+  <div class="section">
+    <div class="section-title"><h2>03 / JOBS</h2><span id="jobCount" class="selection-count">0 selected</span></div>
+    <div id="jobGroups"></div>
+  </div>
+  <div class="section">
+    <div class="section-title"><h2>04 / PLAY STYLE</h2><span id="styleCount" class="selection-count">0 selected</span></div>
+    <div class="tags style-tags" id="styleTags"></div>
+  </div>
+  <div class="section">
+    <div id="result" class="result"><div class="en" id="resultEn"></div><div class="ja" id="resultJa"></div><div class="meta" id="resultMeta"></div></div>
+    <button class="btn primary" id="drawBtn" type="button">DRAW IDENTITY<small>運命を引く</small></button>
+    <div class="actions"><button class="btn" id="redrawBtn" type="button">もう一度引く</button><button class="btn save" id="saveBtn" type="button">PNGを保存</button></div>
+    <div class="status" id="formStatus">必須項目を入力してください</div>
+  </div>
+</section>
+</div>
+<footer class="footer">Unofficial fan-made project / FINAL FANTASY XIV © SQUARE ENIX</footer>
+</main>
+<script>
+'use strict';
+const W=1080,H=1350,canvas=document.getElementById('canvas'),ctx=canvas.getContext('2d');
+const imageInput=document.getElementById('imageInput'),emptyTip=document.getElementById('emptyTip'),zoom=document.getElementById('zoom');
+const state={img:null,imgUrl:'',x:0,y:0,scale:1,baseScale:1,flip:false,drag:false,lastX:0,lastY:0,selectedJobs:new Set(),selectedStyles:new Set(),drawCount:0,result:null,card:null};
+const JOBS={
+'TANK':[['ナイト','PALADIN','tank/paladin.png'],['戦士','WARRIOR','tank/warrior.png'],['暗黒騎士','DARK KNIGHT','tank/dark-knight.png'],['ガンブレイカー','GUNBREAKER','tank/gunbreaker.png']],
+'HEALER':[['白魔道士','WHITE MAGE','healer/white-mage.png'],['学者','SCHOLAR','healer/scholar.png'],['占星術師','ASTROLOGIAN','healer/astrologian.png'],['賢者','SAGE','healer/sage.png']],
+'MELEE DPS':[['モンク','MONK','melee-dps/monk.png'],['竜騎士','DRAGOON','melee-dps/dragoon.png'],['忍者','NINJA','melee-dps/ninja.png'],['侍','SAMURAI','melee-dps/samurai.png'],['リーパー','REAPER','melee-dps/reaper.png'],['ヴァイパー','VIPER','melee-dps/viper.png']],
+'PHYSICAL RANGED DPS':[['吟遊詩人','BARD','physical-ranged-dps/bard.png'],['機工士','MACHINIST','physical-ranged-dps/machinist.png'],['踊り子','DANCER','physical-ranged-dps/dancer.png']],
+'MAGICAL RANGED DPS':[['黒魔道士','BLACK MAGE','magical-ranged-dps/black-mage.png'],['召喚士','SUMMONER','magical-ranged-dps/summoner.png'],['赤魔道士','RED MAGE','magical-ranged-dps/red-mage.png'],['ピクトマンサー','PICTOMANCER','magical-ranged-dps/pictomancer.png']],
+'LIMITED JOB':[['青魔道士','BLUE MAGE','limited-job/blue-mage.png']],
+'GATHERER':[['採掘師','MINER','gatherer/miner.png'],['園芸師','BOTANIST','gatherer/botanist.png'],['漁師','FISHER','gatherer/fisher.png']],
+'CRAFTER':[['木工師','CARPENTER','crafter/carpenter.png'],['鍛冶師','BLACKSMITH','crafter/blacksmith.png'],['甲冑師','ARMORER','crafter/armorer.png'],['彫金師','GOLDSMITH','crafter/goldsmith.png'],['革細工師','LEATHERWORKER','crafter/leatherworker.png'],['裁縫師','WEAVER','crafter/weaver.png'],['錬金術師','ALCHEMIST','crafter/alchemist.png'],['調理師','CULINARIAN','crafter/culinarian.png']]};
+const STYLES=[['メインストーリー','MAIN STORY'],['サブクエスト','SIDE QUESTS'],['カジュアル','CASUAL'],['F.A.T.E.','FATEs'],['高難度','HIGH-END'],['レイド','RAIDING'],['討滅戦','TRIALS'],['アライアンスレイド','ALLIANCE RAID'],['PvP','PvP'],['フロントライン','FRONTLINE'],['クリスタルコンフリクト','CRYSTALLINE CONFLICT'],['ディープダンジョン','DEEP DUNGEON'],['ヴァリアントダンジョン','VARIANT'],['トレジャーハント','TREASURE HUNT'],['ギャザラー','GATHERING'],['クラフター','CRAFTING'],['釣り','FISHING'],['金策','GIL MAKING'],['ハウジング','HOUSING'],['ミラージュプリズム','GLAMOUR'],['グループポーズ','GPOSE'],['ゴールドソーサー','GOLD SAUCER'],['スタジオ巡り','STUDIO HOPPING'],['ユーザーイベント','PLAYER EVENTS'],['RP','ROLEPLAY'],['演奏','PERFORMANCE'],['交流','SOCIAL'],['チャット中心','CHATTING'],['エウレカ','EUREKA'],['固定活動','STATIC GROUP'],['ボズヤ戦線','BOZJA'],['初心者支援','NEWCOMER SUPPORT'],['まったり','LAID-BACK'],['クレセントアイル','OCCULT CRESCENT'],['装備集め','GEAR COLLECTOR'],['無人島','ISLAND SANCTUARY'],['コンテンツルーレット','ROULETTE'],['マウント集め','MOUNT COLLECTOR'],['ミニオン集め','MINION COLLECTOR'],['アチーブメント','ACHIEVEMENTS']];
+const WORLDS={
+'日本 / Elemental':['Aegis','Atomos','Carbuncle','Garuda','Gungnir','Kujata','Tonberry','Typhon'],
+'日本 / Gaia':['Alexander','Bahamut','Durandal','Fenrir','Ifrit','Ridill','Tiamat','Ultima'],
+'日本 / Mana':['Anima','Asura','Chocobo','Hades','Ixion','Masamune','Pandaemonium','Titan'],
+'日本 / Meteor':['Belias','Mandragora','Ramuh','Shinryu','Unicorn','Valefor','Yojimbo','Zeromus'],
+'北米 / Aether':['Adamantoise','Cactuar','Faerie','Gilgamesh','Jenova','Midgardsormr','Sargatanas','Siren'],
+'北米 / Crystal':['Balmung','Brynhildr','Coeurl','Diabolos','Goblin','Malboro','Mateus','Zalera'],
+'北米 / Dynamis':['Cuchulainn','Golem','Halicarnassus','Kraken','Maduin','Marilith','Rafflesia','Seraph'],
+'北米 / Primal':['Behemoth','Excalibur','Exodus','Famfrit','Hyperion','Lamia','Leviathan','Ultros'],
+'欧州 / Chaos':['Cerberus','Louisoix','Moogle','Omega','Phantom','Ragnarok','Sagittarius','Spriggan'],
+'欧州 / Light':['Alpha','Lich','Odin','Phoenix','Raiden','Shiva','Twintania','Zodiark'],
+'オセアニア / Materia':['Bismarck','Ravana','Sephirot','Sophia','Zurvan']};
+const RESULTS={
+message2:[['ECHOED INTENT','大事なことだから2回言った'],['WORDS OF POWER','言霊つよめ'],['LOUD AND CLEAR','本日の主張強め'],['ONE TRUE MESSAGE','伝えたいことはひとつ'],['DOUBLE EMPHASIS','念押し型']],
+sameJob:[['SOULBOUND CALLING','魂のメインジョブ'],['CHOSEN TWICE','二度選ばれた天職'],['ONE TRUE PATH','この道一本'],['UNSHAKEN CALLING','揺るがぬ本職'],['RETURN TO ORIGIN','結局ここに帰ってくる']],
+diffJob:[['DUAL ASPECT','二つの顔を持つ冒険者'],['BEYOND ONE PATH','戦い方はひとつじゃない'],['TWIN DISCIPLINES','二刀流の生き方'],['VERSATILE SOUL','マルチジョブ型'],['TWO CALLINGS','二つの天職']],
+sameStyle:[['TRUE NATURE REVEALED','生態が隠せていない'],['UNWAVERING STYLE','ぶれない遊び方'],['STRONG PREFERENCE','趣味嗜好つよめ'],['LOVE WHAT YOU LOVE','好きなものは好き'],['MAXIMUM TENDENCY','本日の傾向、極端']],
+diffStyle:[['EORZEAN EXPLORER','エオルゼア満喫型'],['MORE THAN ONE WAY','遊び方はひとつじゃない'],['TOO MANY PASSIONS','好きなことが多すぎる'],['WHERE WHIM LEADS','気の向くままに'],['BOUNDLESS CURIOSITY','好奇心の赴くまま']],
+noName:[['NAME WITHHELD','今回は名乗らない'],['BEYOND THE NAME','名よりも姿で語る'],['UNTITLED PORTRAIT','名前のない肖像'],['AURA FIRST','雰囲気先行型'],['IDENTITY UNKNOWN','正体はご想像にお任せ']],
+runic:[['ANCIENT SCRIPT AFFINITY','古代文字適性あり'],['CALL THE DECODERS','解読班を呼んでください'],['LANGUAGE: UNKNOWN','言語設定：不明'],['INTENTIONAL GLYPHS','文字化けではありません'],['UNREGISTERED EORZEAN SCRIPT','エオルゼア未登録文字']]};
+const FONTS=[{r:'N',w:17.5,en:'Prata',ja:'ZenKurenaido'},{r:'N',w:17.5,en:'Cormorant',ja:'Kaisei'},{r:'N',w:17.5,en:'Cinzel',ja:'ZenMaru'},{r:'N',w:17.5,en:'MPlusBlack',ja:'MPlusBlack'},{r:'R',w:12,en:'Dancing',ja:'ZenKurenaido'},{r:'R',w:12,en:'Yeseva',ja:'Hachi'},{r:'SR',w:5,en:'Oxanium',ja:'MPlusBlack'},{r:'SSR',w:1,en:'Runic',ja:'ZenKurenaido'}];
+const LAYOUTS=[{r:'N',w:13.75,id:'left'},{r:'N',w:13.75,id:'right'},{r:'N',w:13.75,id:'wide'},{r:'N',w:13.75,id:'split'},{r:'R',w:25,id:'editorial'},{r:'SR',w:15,id:'editorial2'},{r:'SSR',w:5,id:'special'}];
+const palettes=[['#e6dfd2','#b99d69','#121116'],['#eef0ef','#a3aeb0','#121418'],['#eaded8','#b48d7e','#161112'],['#e5e1d8','#848f79','#111410'],['#e0dce7','#9588aa','#121016']];
+function rand(a){return a[Math.floor(Math.random()*a.length)]}function weighted(items){let t=items.reduce((s,x)=>s+x.w,0),r=Math.random()*t;for(const x of items){r-=x.w;if(r<=0)return x}return items.at(-1)}
+function escapeName(s){return(s||'character').trim().replace(/[\\/:*?"<>|]/g,'').replace(/\s+/g,'-').slice(0,60)||'character'}
+function buildWorlds(){const s=document.getElementById('worldSelect');s.innerHTML='<option value="">選択してください</option>';for(const [g,ws] of Object.entries(WORLDS)){const o=document.createElement('optgroup');o.label=g;const dc=g.split(' / ')[1];ws.forEach(w=>{const x=document.createElement('option');x.value=`${dc} / ${w}`;x.textContent=`${dc} / ${w}`;o.append(x)});s.append(o)}const o=document.createElement('option');o.value='OTHER';o.textContent='OTHER / FREE INPUT';s.append(o)}
+function buildJobs(){const root=document.getElementById('jobGroups');Object.entries(JOBS).forEach(([g,jobs])=>{const d=document.createElement('div');d.className='group';d.innerHTML=`<div class="grouphead"><b>${g}</b><small>${jobs.length}</small></div><div class="tags"></div>`;const t=d.querySelector('.tags');jobs.forEach(([ja,en,path])=>{const b=document.createElement('button');b.type='button';b.className='tag';b.dataset.en=en;b.dataset.path=path;b.innerHTML=`<img src="job-icons/${path}" alt=""><span>${ja}</span>`;b.onclick=()=>{b.classList.toggle('selected');b.classList.contains('selected')?state.selectedJobs.add(en):state.selectedJobs.delete(en);document.getElementById('jobCount').textContent=`${state.selectedJobs.size} selected`;validate()};t.append(b)});root.append(d)})}
+function buildStyles(){const root=document.getElementById('styleTags');STYLES.forEach(([ja,en])=>{const b=document.createElement('button');b.type='button';b.className='tag';b.textContent=ja;b.dataset.en=en;b.onclick=()=>{b.classList.toggle('selected');b.classList.contains('selected')?state.selectedStyles.add(en):state.selectedStyles.delete(en);document.getElementById('styleCount').textContent=`${state.selectedStyles.size} selected`;validate()};root.append(b)})}
+function getWorld(){return document.getElementById('worldSelect').value==='OTHER'?document.getElementById('freeWorld').value.trim():document.getElementById('worldSelect').value}
+function validate(){const ok=state.img&&document.getElementById('charName').value.trim()&&getWorld()&&state.selectedJobs.size&&state.selectedStyles.size;document.getElementById('drawBtn').disabled=!ok;document.getElementById('formStatus').textContent=ok?'抽選できます':'必須項目を入力してください';return ok}
+function resetTransform(){if(!state.img)return;state.baseScale=Math.max(W/state.img.naturalWidth,H/state.img.naturalHeight);state.scale=1;state.x=(W-state.img.naturalWidth*state.baseScale)/2;state.y=(H-state.img.naturalHeight*state.baseScale)/2;state.flip=false;zoom.value=1;render()}
+function drawImage(){ctx.save();ctx.fillStyle='#09090b';ctx.fillRect(0,0,W,H);if(state.img){const s=state.baseScale*state.scale,dw=state.img.naturalWidth*s,dh=state.img.naturalHeight*s;ctx.translate(state.x+(state.flip?dw:0),state.y);ctx.scale(state.flip?-1:1,1);ctx.drawImage(state.img,0,0,dw,dh)}ctx.restore()}
+function overlayBase(p){const g=ctx.createLinearGradient(0,0,0,H);g.addColorStop(0,'rgba(0,0,0,.08)');g.addColorStop(.55,'rgba(0,0,0,.02)');g.addColorStop(1,'rgba(0,0,0,.68)');ctx.fillStyle=g;ctx.fillRect(0,0,W,H);ctx.strokeStyle=p[1];ctx.globalAlpha=.72;ctx.lineWidth=2;ctx.strokeRect(27,27,W-54,H-54);ctx.globalAlpha=1}
+function fitText(text,max,font,size,min=22){while(size>min){ctx.font=`${size}px ${font}`;if(ctx.measureText(text).width<=max)return size;size-=2}return size}
+function lineText(text,x,y,max,font,size,color,align='left'){ctx.save();ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='alphabetic';size=fitText(text,max,font,size);ctx.font=`${size}px ${font}`;ctx.shadowColor='rgba(0,0,0,.75)';ctx.shadowBlur=10;ctx.fillText(text,x,y);ctx.restore()}
+function blockText(text,x,y,max,font,size,color,align='left',lh=1.15){ctx.save();ctx.font=`${size}px ${font}`;ctx.fillStyle=color;ctx.textAlign=align;ctx.textBaseline='top';ctx.shadowColor='#000';ctx.shadowBlur=8;const words=[...text];let lines=[''];for(const ch of words){const test=lines.at(-1)+ch;if(ctx.measureText(test).width>max&&lines.at(-1)){lines.push(ch)}else lines[lines.length-1]=test;if(lines.length===3)break}lines.forEach((l,i)=>ctx.fillText(l,x,y+i*size*lh));ctx.restore()}
+function drawIcon(job,x,y,size){const el=[...document.querySelectorAll('.tag[data-path]')].find(b=>b.dataset.en===job)?.querySelector('img');if(el&&el.complete){ctx.save();ctx.globalAlpha=.94;ctx.drawImage(el,x,y,size,size);ctx.restore()}}
+function toRunic(s){const map={A:'ᚨ',B:'ᛒ',C:'ᚲ',D:'ᛞ',E:'ᛖ',F:'ᚠ',G:'ᚷ',H:'ᚺ',I:'ᛁ',J:'ᛃ',K:'ᚲ',L:'ᛚ',M:'ᛗ',N:'ᚾ',O:'ᛟ',P:'ᛈ',Q:'ᚲ',R:'ᚱ',S:'ᛊ',T:'ᛏ',U:'ᚢ',V:'ᚹ',W:'ᚹ',X:'ᚲᛊ',Y:'ᛃ',Z:'ᛉ'};return[...s.toUpperCase()].map(c=>map[c]||c).join('')}
+function drawCard(){drawImage();if(!state.card)return;const c=state.card,p=c.palette;overlayBase(p);ctx.fillStyle=p[0];ctx.strokeStyle=p[1];const name=document.getElementById('charName').value.trim(),world=getWorld(),msg=document.getElementById('message').value.trim();let items=c.items;
+ const rights='Created by 鱗の旅人 / FINAL FANTASY XIV © SQUARE ENIX';
+ if(c.layout.id==='left') drawComposition(66,1040,'left');
+ else if(c.layout.id==='right') drawComposition(1014,1040,'right');
+ else if(c.layout.id==='wide') drawWide();
+ else if(c.layout.id==='split') drawSplit();
+ else if(c.layout.id==='editorial'||c.layout.id==='editorial2') drawEditorial(c.layout.id==='editorial2');
+ else drawSpecial();
+ const corners=[[48,55,'left'],[1032,55,'right'],[48,1311,'left'],[1032,1311,'right']];const cor=c.corner;ctx.save();ctx.font='15px Oxanium';ctx.fillStyle=p[0];ctx.textAlign=cor[2];ctx.globalAlpha=.8;ctx.shadowColor='#000';ctx.shadowBlur=6;ctx.fillText(rights,cor[0],cor[1]);ctx.restore();
+ function has(k){return items.filter(x=>x.kind===k)}
+ function drawComposition(x,y,align){const side=align==='left'?1:-1,max=780;ctx.save();ctx.textAlign=align;ctx.strokeStyle=p[1];ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(x,y-14);ctx.lineTo(x+side*520,y-14);ctx.stroke();let yy=y;if(has('name').length){lineText(c.font.r==='SSR'?toRunic(name):name,x,yy,max,c.font.en,c.font.r==='SSR'?72:68,p[0],align);if(c.font.r==='SSR'){yy+=42;lineText(name,x,yy,max,'ZenKurenaido',22,p[0],align)}yy+=80}has('world').forEach(()=>{lineText(world,x,yy,max,'Oxanium',29,p[0],align);yy+=45});has('job').forEach(v=>{drawIcon(v.value,align==='left'?x:x-54,yy-38,48);lineText(v.value,x+side*64,yy,max-70,c.font.en,38,p[0],align==='left'?'left':'right');yy+=57});has('style').forEach(v=>{lineText(v.value,x,yy,max,c.font.en,31,p[0],align);yy+=44});has('message').forEach(()=>{blockText(msg,x,yy,max,c.font.ja,35,p[0],align);yy+=90});ctx.restore()}
+ function drawWide(){ctx.fillStyle='rgba(7,7,9,.55)';ctx.fillRect(0,980,W,370);ctx.strokeStyle=p[1];ctx.beginPath();ctx.moveTo(48,1008);ctx.lineTo(1032,1008);ctx.stroke();let yy=1085;if(has('name').length){lineText(c.font.r==='SSR'?toRunic(name):name,540,yy,930,c.font.en,72,p[0],'center');yy+=80}const vals=[];has('job').forEach(v=>vals.push(v.value));has('style').forEach(v=>vals.push(v.value));has('world').forEach(()=>vals.push(world));lineText(vals.join('  ·  '),540,yy,950,'Oxanium',28,p[0],'center');yy+=55;if(has('message').length)lineText(msg,540,yy,900,c.font.ja,32,p[0],'center')}
+ function drawSplit(){if(has('name').length)lineText(c.font.r==='SSR'?toRunic(name):name,62,105,850,c.font.en,66,p[0],'left');let yy=1080;has('message').forEach(()=>{blockText(msg,62,yy,700,c.font.ja,38,p[0]);yy+=100});const vals=[...has('job'),...has('style')];vals.forEach((v,i)=>lineText(v.value,1018,1080+i*50,600,c.font.en,34,p[0],'right'));if(has('world').length)lineText(world,1018,1280,500,'Oxanium',25,p[0],'right')}
+ function drawEditorial(two){ctx.fillStyle='rgba(8,8,10,.56)';ctx.fillRect(58,two?805:850,470,two?470:425);ctx.strokeStyle=p[1];ctx.strokeRect(58,two?805:850,470,two?470:425);lineText('DRAWN IDENTITY',84,two?850:895,400,'Oxanium',18,p[1]);let yy=two?930:970;if(has('name').length){lineText(c.font.r==='SSR'?toRunic(name):name,84,yy,410,c.font.en,55,p[0]);yy+=72}has('job').forEach(v=>{drawIcon(v.value,84,yy-35,44);lineText(v.value,140,yy,350,c.font.en,31,p[0]);yy+=52});has('style').forEach(v=>{lineText(v.value,84,yy,405,'Oxanium',25,p[0]);yy+=38});has('world').forEach(()=>{lineText(world,84,yy,400,'Oxanium',22,p[0]);yy+=35});has('message').forEach(()=>blockText(msg,84,yy,400,c.font.ja,29,p[0]));}
+ function drawSpecial(){ctx.save();ctx.translate(540,680);ctx.rotate(-.055);ctx.fillStyle='rgba(8,8,10,.62)';ctx.fillRect(-460,240,920,280);ctx.strokeStyle=p[1];ctx.lineWidth=2;ctx.strokeRect(-460,240,920,280);ctx.restore();let yy=995;if(has('name').length){lineText(c.font.r==='SSR'?toRunic(name):name,540,yy,850,c.font.en,76,p[0],'center');if(c.font.r==='SSR'){yy+=39;lineText(name,540,yy,700,'ZenKurenaido',22,p[0],'center')}yy+=70}const vals=[...has('job'),...has('style')].map(v=>v.value);lineText(vals.join(' / '),540,yy,850,'Oxanium',28,p[0],'center');yy+=55;if(has('message').length)lineText(msg,540,yy,800,c.font.ja,32,p[0],'center');if(has('world').length)lineText(world,540,yy+45,700,'Oxanium',21,p[0],'center')}
+}
+function render(){state.card?drawCard():drawImage()}
+function performDraw(){if(!validate())return;state.drawCount++;const msg=document.getElementById('message').value.trim();let pool=[{kind:'name',w:38,max:1,m:.0},{kind:'world',w:8,max:1,m:0},{kind:'job',w:21,max:2,m:.5},{kind:'style',w:15,max:2,m:.6}];if(msg)pool.push({kind:'message',w:18,max:2,m:.7});const counts={},items=[];for(let i=0;i<3;i++){const avail=pool.filter(x=>(counts[x.kind]||0)<x.max).map(x=>({...x,w:x.w*Math.pow(x.m||1,counts[x.kind]||0)}));const pick=weighted(avail);counts[pick.kind]=(counts[pick.kind]||0)+1;let value='';if(pick.kind==='job')value=rand([...state.selectedJobs]);if(pick.kind==='style')value=rand([...state.selectedStyles]);items.push({kind:pick.kind,value})}
+ const font=weighted(FONTS),special=items.some((v,i)=>items.findIndex(x=>x.kind===v.kind&&x.value===v.value)!==i)||!items.some(x=>x.kind==='name')||font.r==='SSR';const layouts=special?LAYOUTS:LAYOUTS.filter(x=>x.id!=='special');const layout=weighted(layouts),palette=rand(palettes);const corner=rand([[48,55,'left'],[1032,55,'right'],[48,1311,'left'],[1032,1311,'right']]);state.card={items,font,layout,palette,corner};
+ const jobs=items.filter(x=>x.kind==='job'),styles=items.filter(x=>x.kind==='style');let key=null;if(font.r==='SSR')key='runic';else if(!items.some(x=>x.kind==='name'))key='noName';else if(items.filter(x=>x.kind==='message').length===2)key='message2';else if(jobs.length===2)key=jobs[0].value===jobs[1].value?'sameJob':'diffJob';else if(styles.length===2)key=styles[0].value===styles[1].value?'sameStyle':'diffStyle';else key=rand(['noName','diffJob','diffStyle']);state.result=rand(RESULTS[key]);
+ document.getElementById('resultEn').textContent=state.result[0];document.getElementById('resultJa').textContent=state.result[1];document.getElementById('resultMeta').textContent=`DRAW ${String(state.drawCount).padStart(3,'0')} · FONT ${font.r} · LAYOUT ${layout.r}`;document.getElementById('result').classList.add('show');render()}
+imageInput.addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;if(state.imgUrl)URL.revokeObjectURL(state.imgUrl);state.imgUrl=URL.createObjectURL(f);const img=new Image();img.onload=()=>{state.img=img;emptyTip.classList.add('hidden');document.getElementById('imageStatus').textContent=`${f.name} / ${img.naturalWidth} × ${img.naturalHeight}px`;document.getElementById('imageStatus').className='status ok';resetTransform();validate()};img.onerror=()=>{document.getElementById('imageStatus').textContent='画像を読み込めませんでした';document.getElementById('imageStatus').className='status bad'};img.src=state.imgUrl});
+document.getElementById('clearImage').onclick=()=>{if(state.imgUrl)URL.revokeObjectURL(state.imgUrl);state.img=null;state.imgUrl='';imageInput.value='';state.card=null;emptyTip.classList.remove('hidden');document.getElementById('imageStatus').textContent='未選択';document.getElementById('imageStatus').className='status';render();validate()};
+document.getElementById('flipBtn').onclick=()=>{state.flip=!state.flip;render()};document.getElementById('resetBtn').onclick=resetTransform;zoom.oninput=()=>{if(!state.img)return;const old=state.scale,n=+zoom.value,cx=W/2,cy=H/2;state.x=cx-(cx-state.x)*(n/old);state.y=cy-(cy-state.y)*(n/old);state.scale=n;render()};
+const wrap=document.getElementById('previewWrap');function pt(e){const r=wrap.getBoundingClientRect(),t=e.touches?.[0]||e;return{x:(t.clientX-r.left)*W/r.width,y:(t.clientY-r.top)*H/r.height}}wrap.addEventListener('pointerdown',e=>{if(!state.img)return;wrap.setPointerCapture(e.pointerId);const p=pt(e);state.drag=true;state.lastX=p.x;state.lastY=p.y});wrap.addEventListener('pointermove',e=>{if(!state.drag)return;const p=pt(e);state.x+=p.x-state.lastX;state.y+=p.y-state.lastY;state.lastX=p.x;state.lastY=p.y;render()});wrap.addEventListener('pointerup',()=>state.drag=false);wrap.addEventListener('pointercancel',()=>state.drag=false);wrap.addEventListener('wheel',e=>{if(!state.img)return;e.preventDefault();const old=state.scale,n=Math.min(4,Math.max(.3,old*(e.deltaY>0?.94:1.06))),p=pt(e);state.x=p.x-(p.x-state.x)*(n/old);state.y=p.y-(p.y-state.y)*(n/old);state.scale=n;zoom.value=n;render()},{passive:false});
+document.getElementById('worldSelect').onchange=e=>{document.getElementById('freeWorld').classList.toggle('show',e.target.value==='OTHER');validate()};['charName','freeWorld','message'].forEach(id=>document.getElementById(id).addEventListener('input',()=>{validate();if(state.card)render()}));
+document.getElementById('drawBtn').onclick=performDraw;document.getElementById('redrawBtn').onclick=performDraw;document.getElementById('saveBtn').onclick=()=>{if(!state.card){document.getElementById('formStatus').textContent='先に運命を引いてください';return}render();const a=document.createElement('a');a.download=`${escapeName(document.getElementById('charName').value)}_${state.result[1]}.png`;a.href=canvas.toDataURL('image/png');a.click()};
+buildWorlds();buildJobs();buildStyles();drawImage();validate();
+</script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+Drawn Identity — Job Icon File List
+Production date: 2026-07-27
+Total: 33 icons
+
+[tank]
+paladin.png
+warrior.png
+dark-knight.png
+gunbreaker.png
+
+[healer]
+white-mage.png
+scholar.png
+astrologian.png
+sage.png
+
+[melee-dps]
+monk.png
+dragoon.png
+ninja.png
+samurai.png
+reaper.png
+viper.png
+
+[physical-ranged-dps]
+bard.png
+machinist.png
+dancer.png
+
+[magical-ranged-dps]
+black-mage.png
+summoner.png
+red-mage.png
+pictomancer.png
+
+[limited-job]
+blue-mage.png
+
+[gatherer]
+miner.png
+botanist.png
+fisher.png
+
+[crafter]
+carpenter.png
+blacksmith.png
+armorer.png
+goldsmith.png
+leatherworker.png
+weaver.png
+alchemist.png
+culinarian.png
+
+Note:
+Beastmaster is not included because, as of 2026-07-27, it is announced for
+Patch 7.56 but has not yet been implemented.
