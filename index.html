@@ -34,7 +34,7 @@ button,input,select,textarea{font:inherit}.app{width:min(1550px,100%);margin:aut
 </head>
 <body>
 <main class="app">
-<header class="brand"><div><div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap"><h1>Drawn Identity</h1><span style="font:600 13px Oxanium,sans-serif;letter-spacing:.08em;color:var(--accent)">#DrawnIdentity</span></div><p>運命に選ばれた個性 — FFXIV CHARACTER CARD DRAW　Ver.1.3</p><p class="count-note">抽選要素の組み合わせにより、約224万通り以上のFF14キャラクターカードを作成できます。</p></div><div class="edition">BUILD 04</div></header>
+<header class="brand"><div><div style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap"><h1>Drawn Identity</h1><span style="font:600 13px Oxanium,sans-serif;letter-spacing:.08em;color:var(--accent)">#DrawnIdentity</span></div><p>運命に選ばれた個性 — FFXIV CHARACTER CARD DRAW　Ver.1.4</p><p class="count-note">抽選要素の組み合わせにより、約144万通り以上のFF14キャラクターカードを作成できます。</p></div><div class="edition">BUILD 05</div></header>
 <div class="workspace">
 <section class="preview-sticky">
   <div class="preview-shell">
@@ -209,7 +209,7 @@ noName:[['NAME WITHHELD','今回は名乗らない'],['BEYOND THE NAME','名よ�
 runic:[['ANCIENT SCRIPT AFFINITY','古代文字適性あり'],['CALL THE DECODERS','解読班を呼んでください'],['LANGUAGE: UNKNOWN','言語設定：不明'],['INTENTIONAL GLYPHS','文字化けではありません'],['UNREGISTERED EORZEAN SCRIPT','エオルゼア未登録文字']],
 mythic:[['VEIL OF FORGOTTEN TONGUES','忘れられた言語の帳'],['NAME IN A FORBIDDEN SCRIPT','禁じられた文字で綴られた名'],['GLYPHS OF THE HIDDEN AGE','秘された時代の紋字'],['ORACLE OF UNREAD LETTERS','読めない文字の神託'],['ECHOES FROM THE FIRST GLYPHS','最初の文字の残響']]};
 const FONTS=[{r:'N',w:17.5,en:'Prata',ja:'ZenKurenaido'},{r:'N',w:17.5,en:'Cormorant',ja:'Kaisei'},{r:'N',w:17.5,en:'Cinzel',ja:'ZenMaru'},{r:'N',w:17.5,en:'MPlusBlack',ja:'MPlusBlack'},{r:'R',w:12,en:'Dancing',ja:'ZenKurenaido'},{r:'R',w:12,en:'Yeseva',ja:'Hachi'},{r:'SR',w:2.5,en:'Oxanium',ja:'MPlusBlack'},{r:'SR',w:2.5,en:'YujiAkari',ja:'ZenKurenaido'},{r:'SSR',w:.8,en:'Runic',ja:'ZenKurenaido'},{r:'UR',w:.2,en:'Nastaliq',ja:'ZenKurenaido'}];
-const LAYOUTS=[{r:'N',w:55/7,id:'left'},{r:'N',w:55/7,id:'right'},{r:'N',w:55/7,id:'wide'},{r:'N',w:55/7,id:'split'},{r:'N',w:55/7,id:'top'},{r:'N',w:55/7,id:'leftRail'},{r:'N',w:55/7,id:'rightRail'},{r:'R',w:25/3,id:'editorial'},{r:'R',w:25/3,id:'diagonal'},{r:'R',w:25/3,id:'edgeName'},{r:'SR',w:5,id:'editorial2'},{r:'SR',w:5,id:'edgeProfile'},{r:'SR',w:5,id:'axis'},{r:'SSR',w:5,id:'special'}];
+const LAYOUTS=[{r:'N',w:11,id:'left'},{r:'N',w:11,id:'right'},{r:'N',w:11,id:'wide'},{r:'N',w:11,id:'split'},{r:'N',w:11,id:'top'},{r:'R',w:12.5,id:'editorial'},{r:'R',w:12.5,id:'diagonal'},{r:'SR',w:15,id:'editorial2'},{r:'SSR',w:5,id:'special'}];
 const palettes=[['#e6dfd2','#b99d69','#121116'],['#eef0ef','#a3aeb0','#121418'],['#eaded8','#b48d7e','#161112'],['#e5e1d8','#848f79','#111410'],['#e0dce7','#9588aa','#121016']];
 function rand(a){return a[Math.floor(Math.random()*a.length)]}function weighted(items){let t=items.reduce((s,x)=>s+x.w,0),r=Math.random()*t;for(const x of items){r-=x.w;if(r<=0)return x}return items.at(-1)}
 function escapeName(s){return(s||'anonymous').trim().replace(/[\\/:*?"<>|]/g,'').replace(/\s+/g,'-').slice(0,60)||'character'}
